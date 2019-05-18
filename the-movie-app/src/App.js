@@ -1,26 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component, Fragment } from 'react';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+// Packages
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+
+// Pages
+import Home from './Pages/Home';
+import Movie from './Pages/Movie.jsx'
+import MissingPage from './Pages/MissingPage';
+
+class App extends Component {
+  render() {
+    return (
+      <Fragment>
+        <BrowserRouter>
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route path="/explore" component={Movie} />
+            <Route component={MissingPage} />
+          </Switch>
+        </BrowserRouter>
+      </Fragment>
+    );
+  }
 }
 
 export default App;
