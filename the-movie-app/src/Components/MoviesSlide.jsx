@@ -1,11 +1,33 @@
 import React, { Component } from 'react';
 
+//Package
+import styled from 'styled-components';
+
+//ReactStrap
+import { Container, Row, Col } from 'reactstrap';
+
+const SlideCard = styled.div`
+    background-color: blueviolet;
+    border-radius: 20px;
+    height: 280px;
+    padding: 15px;
+    margin: 15px;
+    width: 510px;
+`
+
 class MoviesSlide extends Component {
     render() {
         return (
-            <div>
+            <Container fluid>
+                <Row>
+                    <SlideCard>
 
-            </div>
+                    </SlideCard>
+                    <SlideCard>
+
+                    </SlideCard>
+                </Row>
+            </Container>
         );
     }
 }
