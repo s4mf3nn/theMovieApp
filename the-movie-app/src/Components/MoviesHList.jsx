@@ -4,51 +4,59 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 
 //ReactStrap
-import { Container, Row, Col } from 'reactstrap';
+import { Container } from 'reactstrap';
 
-const Card = styled(Col)`
-    background-color: palegreen;
+const CardsContainer = styled.div`
+    overflow-x: scroll;
+    overflow-y: hidden;
+    scrollbar-color: #f3f3f3 white;
+    white-space: nowrap;
+`
+
+const Card = styled.div`
+    background-color: blueviolet;
     border-radius: 20px;
     height: 280px;
-    width: 100%;
+    padding: 15px;
+    margin: 15px;
+    width: 180px;
+    display: inline-block;
+    float: none;
 `
 
 class MoviesHList extends Component {
     render() {
         return (
             <Container fluid>
-                <Row>
-                    <Col md="2">
-                        <Card>
+                <CardsContainer>
+                    <Card>
 
-                        </Card>
-                    </Col>
-                    <Col md="2">
-                        <Card>
+                    </Card>
+                    <Card>
 
-                        </Card>
-                    </Col>
-                    <Col md="2">
-                        <Card>
+                    </Card>
+                    <Card>
 
-                        </Card>
-                    </Col>
-                    <Col md="2">
-                        <Card>
+                    </Card>
+                    <Card>
 
-                        </Card>
-                    </Col>
-                    <Col md="2">
-                        <Card>
+                    </Card>
+                    <Card>
 
-                        </Card>
-                    </Col>
-                    <Col md="2">
-                        <Card>
+                    </Card>
+                    <Card>
 
-                        </Card>
-                    </Col>
-                </Row>
+                    </Card>
+                    <Card>
+
+                    </Card>
+                    <Card>
+
+                    </Card>
+                    <Card>
+
+                    </Card>
+                </CardsContainer>
             </Container>
         );
     }
