@@ -4,22 +4,31 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 
 const Item = styled.div`
-    background-color: blueviolet;
-    border-radius: 20px;
-    height: 280px;
-    padding: 15px;
-    margin: 15px;
-    width: 186px;
+    padding: 8px;
+    margin: 8px;
     display: inline-block;
     float: none;
 `
 
+const Poster = styled.img`
+    width: 190px;
+    border-radius: 10px;
+`
+
+const MovieInfo = styled.div`
+  display: block;
+`;
+
 class Card extends Component {
+
     render() {
-        console.log(this.props.poster);
+        const { poster, title } = this.props;
         return (
             <Item>
-                {this.props.poster}
+                <Poster src={"https://image.tmdb.org/t/p/w600_and_h900_bestv2" + poster} />
+                <MovieInfo>
+                    {title}
+                </MovieInfo>
             </Item>
         );
     }

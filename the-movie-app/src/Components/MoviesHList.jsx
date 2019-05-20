@@ -21,14 +21,13 @@ class MoviesHList extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            trending: []
+            trending: [],
         }
     };
 
     componentDidMount() {
-        axios.get(`https://api.themoviedb.org/3/trending/movie/week?api_key=c50cc30cef67c55f99a83b8629561659`)
+        axios.get(`https://api.themoviedb.org/3/discover/movie?api_key=c50cc30cef67c55f99a83b8629561659&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=14`)
             .then(res => {
-                console.log(res.data.results);
                 this.setState({
                     trending: res.data.results
                 });
@@ -39,15 +38,14 @@ class MoviesHList extends Component {
         return (
             <Container fluid>
                 <CardsContainer>
-                    {Object.keys(this.state.trending)
-                        .map((movie, i) => {
-                            return (
-                                <Card
-                                    key={i}
-                                    poster={movie.poster_path}
-                                    title={movie.original_title}
-                                />)
-                        })}
+                    {this.state.trending.map((movie, i) => {
+                        return (
+                            <Card
+                                key={i}
+                                poster={movie.poster_path}
+                                title={movie.title}
+                            />)
+                    })}
                 </CardsContainer>
             </Container>
         );
