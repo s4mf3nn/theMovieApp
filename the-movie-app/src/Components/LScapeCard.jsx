@@ -98,7 +98,7 @@ const genres = [
     }
 ]
 
-class SlideCard extends Component {
+class LScapeCard extends Component {
 
     render() {
         const { poster, title, release, genre } = this.props;
@@ -117,4 +117,4 @@ class SlideCard extends Component {
     }
 }
 
-export default SlideCard;
+export default LScapeCard;

@@ -19,7 +19,7 @@ const MovieInfo = styled.div`
   display: block;
 `;
 
-class Card extends Component {
+class PosterCard extends Component {
 
     render() {
         const { poster, title } = this.props;
@@ -34,4 +34,4 @@ class Card extends Component {
     }
 }
 
-export default Card;
+export default PosterCard;
