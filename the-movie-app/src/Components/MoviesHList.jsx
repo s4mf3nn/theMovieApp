@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
 
-//Package
+//Components
+import Card from './Card';
+
+//Packages
 import styled from 'styled-components';
+import axios from "axios";
 
 //ReactStrap
 import { Container } from 'reactstrap';
@@ -13,49 +17,37 @@ const CardsContainer = styled.div`
     white-space: nowrap;
 `
 
-const Card = styled.div`
-    background-color: blueviolet;
-    border-radius: 20px;
-    height: 280px;
-    padding: 15px;
-    margin: 15px;
-    width: 180px;
-    display: inline-block;
-    float: none;
-`
-
 class MoviesHList extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            trending: []
+        }
+    };
+
+    componentDidMount() {
+        axios.get(`https://api.themoviedb.org/3/trending/movie/week?api_key=c50cc30cef67c55f99a83b8629561659`)
+            .then(res => {
+                console.log(res.data.results);
+                this.setState({
+                    trending: res.data.results
+                });
+            });
+    }
+
     render() {
         return (
             <Container fluid>
                 <CardsContainer>
-                    <Card>
-
-                    </Card>
-                    <Card>
-
-                    </Card>
-                    <Card>
-
-                    </Card>
-                    <Card>
-
-                    </Card>
-                    <Card>
-
-                    </Card>
-                    <Card>
-
-                    </Card>
-                    <Card>
-
-                    </Card>
-                    <Card>
-
-                    </Card>
-                    <Card>
-
-                    </Card>
+                    {Object.keys(this.state.trending)
+                        .map((movie, i) => {
+                            return (
+                                <Card
+                                    key={i}
+                                    poster={movie.poster_path}
+                                    title={movie.original_title}
+                                />)
+                        })}
                 </CardsContainer>
             </Container>
         );
