@@ -26,7 +26,9 @@ class LScapeGallery extends Component {
     };
 
     componentDidMount() {
-        axios.get(`https://api.themoviedb.org/3/trending/movie/week?api_key=c50cc30cef67c55f99a83b8629561659`)
+        const key = "c50cc30cef67c55f99a83b8629561659";
+
+        axios.get(`https://api.themoviedb.org/3/trending/movie/week?api_key=${key}`)
             .then(res => {
                 this.setState({
                     trending: res.data.results
@@ -46,6 +48,8 @@ class LScapeGallery extends Component {
                                 title={movie.title}
                                 release={movie.release_date}
                                 genre={movie.genre_ids[0]}
+                                rating={movie.vote_average}
+                                vote={movie.vote_count}
                             />)
                     })
                     }
