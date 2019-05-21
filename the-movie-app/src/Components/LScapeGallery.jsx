@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 
 //Components
 import LScapeCard from './LScapeCard';
@@ -7,21 +7,19 @@ import LScapeCard from './LScapeCard';
 import styled from 'styled-components';
 import axios from "axios";
 
-//ReactStrap
-import { Container } from 'reactstrap';
-
-const CardsContainer = styled.div`
-    overflow-x: scroll;
-    overflow-y: hidden;
-    scrollbar-color: #f3f3f3 white;
-    white-space: nowrap;
+const LoadingContainer = styled.div`
+    width: 100%;
+    height: 362px;
+    padding-left: 44%;
+    padding-top: 15%;
 `
 
 class LScapeGallery extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            trending: []
+            trending: [],
+            isLoaded: false
         }
     };
 
@@ -31,16 +29,23 @@ class LScapeGallery extends Component {
         axios.get(`https://api.themoviedb.org/3/trending/movie/week?api_key=${key}`)
             .then(res => {
                 this.setState({
-                    trending: res.data.results
+                    trending: res.data.results,
+                    isLoaded: true
                 });
             });
     }
 
     render() {
-        return (
-            <Container fluid>
-                <CardsContainer>
-                    {this.state.trending.map((movie, i) => {
+
+        const { isLoaded, trending } = this.state;
+
+        if (!isLoaded) {
+            return <LoadingContainer>Chargeeeeez !!!</LoadingContainer>;
+        }
+        else {
+            return (
+                <Fragment>
+                    {trending.map((movie, i) => {
                         return (
                             <LScapeCard
                                 key={i}
@@ -53,9 +58,9 @@ class LScapeGallery extends Component {
                             />)
                     })
                     }
-                </CardsContainer>
-            </Container>
-        );
+                </Fragment>
+            );
+        }
     }
 }
 

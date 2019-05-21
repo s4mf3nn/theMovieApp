@@ -21,6 +21,7 @@ const SideNav = styled.div`
     height: 100vh;
     flex: 0 0 16.666667%;
     max-width: 16.666667%;
+    height: inherit;
 
   @media (max-width: 900px) {
     display: none;
@@ -37,9 +38,37 @@ const Main = styled.div`
 
 const BigTitle = styled.h1`
     font-weight: bold;
-    font-size: 32px;
+    font-size: 27px;
     padding-left: 30px;
-    padding-top: 50px;
+    padding-top: 30px;
+    margin-left: 15px;
+`
+
+const MobileInfo = styled.div`
+    display: none;
+
+@media (max-width: 900px) {
+    z-index: 1000;
+    display: block;
+    width: 100vw;
+    height: 100vh;
+    text-align: center;
+    padding-top: 60%;
+    padding-right: 10px;
+    margin-left: -10px !important;
+    font-size: 28px;
+    font-weight: bold;
+    position: fixed;
+    background-color: #fff;
+}
+`
+
+const CardsContainer = styled.div`
+    overflow-x: scroll;
+    overflow-y: hidden;
+    scrollbar-color: #f3f3f3 white;
+    white-space: nowrap;
+    margin-left: 15px;
 `
 
 class Home extends Component {
@@ -47,6 +76,9 @@ class Home extends Component {
     render() {
         return (
             <Fluid fluid>
+                <MobileInfo>
+                    This concept is not available on mobile view, please visit it on desktop
+                </MobileInfo>
                 <Row>
                     <SideNav>
                         navigation
@@ -54,11 +86,18 @@ class Home extends Component {
                     <Main>
                         <Row>
                             <BigTitle>Trending Movies</BigTitle>
-                            <LScapeGallery />
+                            <Container fluid>
+                                <CardsContainer>
+                                    <LScapeGallery />
+                                </CardsContainer>
+                            </Container>
                         </Row>
                         <Row>
                             <BigTitle>Browse by category</BigTitle>
-                            <PosterGallery />
+
+                            <Container fluid>
+                                <PosterGallery />
+                            </Container>
                         </Row>
                     </Main>
                 </Row>

@@ -12,8 +12,13 @@ const Item = styled.div`
 `
 
 const LandscapePoster = styled.img`
-    width: 480px;
+    width: 380px;
     border-radius: 20px;
+    height: 100%;
+
+    &:hover {
+        transform: scale(1.06);
+    }
 `
 
 const MovieInfo = styled.div`
@@ -21,27 +26,28 @@ const MovieInfo = styled.div`
 `;
 
 const TitleBig = styled.h1`
-    margin-top: 30px;
+    margin-top: 20px;
     font-weight: bold;
-    font-size: 26px;
+    font-size: 22px;
     display: block;
-    max-width: 330px;
+    max-width: 280px;
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
 `
 const SubTitleBig = styled.h2`
     font-weight: bold;
-    font-size: 16px;
+    font-size: 14px;
     color: #b0b0b0;
-    margin-top: 15px;
+    margin-top: 10px;
 `
 
 const Rating = styled.div`
+    font-size: 14px;
     margin-left: 5px;
     font-weight: bold;
     color: #b0b0b0;
-    margin-top: 15px;
+    margin-top: 10px;
 `
 
 const StarIcon = styled(Star)`
@@ -149,7 +155,7 @@ class LScapeCard extends Component {
                         })}
                     </SubTitleBig>
                     <Rating>
-                        <StarIcon size="20" />{rating} ({vote})
+                        <StarIcon size="18" />{rating} ({vote})
                     </Rating>
                 </MovieInfo>
             </Item>
