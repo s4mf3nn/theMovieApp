@@ -6,6 +6,7 @@ import PosterCard from './PosterCard';
 //Packages
 import styled from 'styled-components';
 import axios from "axios";
+import { Link } from 'react-router-dom';
 
 const CardsContainer = styled.div`
     overflow-x: scroll;
@@ -13,7 +14,7 @@ const CardsContainer = styled.div`
     scrollbar-color: #f3f3f3 white;
     white-space: nowrap;
     margin-left: 15px;
-    padding-bottom: 60px;
+    margin-bottom: 60px;
 `
 
 const ButtonContainer = styled.div`
@@ -131,6 +132,7 @@ class PosterGallery extends Component {
                     <CardsContainer>
                         {trending.map((movie, i) => {
                             return (
+                                <Link push='true' key={i} to={`movie/${movie.id}`}>
                                 <PosterCard
                                     key={i}
                                     poster={movie.poster_path}
@@ -139,7 +141,9 @@ class PosterGallery extends Component {
                                     genre={movie.genre_ids[0]}
                                     rating={movie.vote_average}
                                     vote={movie.vote_count}
-                                />)
+                                />
+                                </Link>
+                                )
                         })}
                     </CardsContainer>
                 </Fragment>

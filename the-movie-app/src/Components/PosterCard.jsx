@@ -14,6 +14,7 @@ const Item = styled.div`
 const Poster = styled.img`
     width: 160px;
     border-radius: 10px;
+    transition: 0.25s;
 
     &:hover {
         transform: scale(1.1);
@@ -37,7 +38,9 @@ const TitleBig = styled.h1`
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
+    color: #212529;
 `
+
 const SubTitleBig = styled.h2`
     font-weight: bold;
     font-size: 13px;

@@ -94,7 +94,6 @@ class Home extends Component {
                         </Row>
                         <Row>
                             <BigTitle>Browse by category</BigTitle>
-
                             <Container fluid>
                                 <PosterGallery />
                             </Container>

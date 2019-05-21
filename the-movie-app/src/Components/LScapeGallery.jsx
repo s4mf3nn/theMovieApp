@@ -6,6 +6,7 @@ import LScapeCard from './LScapeCard';
 //Packages
 import styled from 'styled-components';
 import axios from "axios";
+import { Link } from 'react-router-dom';
 
 const LoadingContainer = styled.div`
     width: 100%;
@@ -47,15 +48,18 @@ class LScapeGallery extends Component {
                 <Fragment>
                     {trending.map((movie, i) => {
                         return (
-                            <LScapeCard
-                                key={i}
-                                poster={movie.poster_path}
-                                title={movie.title}
-                                release={movie.release_date}
-                                genre={movie.genre_ids[0]}
-                                rating={movie.vote_average}
-                                vote={movie.vote_count}
-                            />)
+                            <Link push='true' key={i} to={`movie/${movie.id}`}>
+                                <LScapeCard
+                                    key={i}
+                                    poster={movie.poster_path}
+                                    title={movie.title}
+                                    release={movie.release_date}
+                                    genre={movie.genre_ids[0]}
+                                    rating={movie.vote_average}
+                                    vote={movie.vote_count}
+                                />
+                            </Link>
+                        )
                     })
                     }
                 </Fragment>

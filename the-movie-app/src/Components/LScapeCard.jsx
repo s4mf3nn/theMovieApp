@@ -15,6 +15,7 @@ const LandscapePoster = styled.img`
     width: 380px;
     border-radius: 20px;
     height: 100%;
+    transition: 0.25s;
 
     &:hover {
         transform: scale(1.06);
@@ -34,6 +35,7 @@ const TitleBig = styled.h1`
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
+    color: #212529;
 `
 const SubTitleBig = styled.h2`
     font-weight: bold;
