@@ -15,7 +15,8 @@ const Poster = styled.img`
     width: 160px;
     border-radius: 10px;
     transition: 0.25s;
-
+    box-shadow: 0px 22px 25px -20px #000;
+    
     &:hover {
         transform: scale(1.1);
     }

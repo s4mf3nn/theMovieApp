@@ -16,7 +16,8 @@ const LandscapePoster = styled.img`
     border-radius: 20px;
     height: 100%;
     transition: 0.25s;
-
+    box-shadow: 0px 22px 25px -20px #000;
+    
     &:hover {
         transform: scale(1.06);
     }

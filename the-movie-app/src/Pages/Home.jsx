@@ -38,7 +38,7 @@ const Main = styled.div`
 
 const BigTitle = styled.h1`
     font-weight: bold;
-    font-size: 27px;
+    font-size: 25px;
     padding-left: 30px;
     padding-top: 30px;
     margin-left: 15px;
