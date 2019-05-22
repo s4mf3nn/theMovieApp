@@ -1,3 +1,8 @@
+// [_] Add a NavBar
+// [_] Move the navigation in it own component
+// [_] Add a Search Bar component
+// [x] Add a "Sort by genre" component
+
 import React, { Component } from 'react';
 
 //Components
@@ -6,6 +11,7 @@ import PosterGallery from '../Components/PosterGallery';
 
 //Package
 import styled from 'styled-components';
+import { Film, Shuffle, User } from 'react-feather';
 
 //ReactStrap
 import { Container, Row } from 'reactstrap';
@@ -71,6 +77,41 @@ const CardsContainer = styled.div`
     margin-left: 15px;
 `
 
+const NavCol = styled.div`
+  position: fixed;
+`
+
+const Logo = styled.div`
+  margin: 34px 26px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #fb5732;
+  cursor: pointer;
+`
+
+const NavItem = styled.div`
+    font-size: 18px;
+    font-weight: bold;
+    margin: 34px 26px;
+    color: ${props => props.active ? "#212529" : "#bbb"};
+    cursor: pointer;
+`
+
+const FilmIcon = styled(Film)`
+    padding-right: 6px;
+    margin-top: -4px;
+`
+
+const ShuffleIcon = styled(Shuffle)`
+    padding-right: 6px;
+    margin-top: -4px;
+`
+
+const UserIcon = styled(User)`
+    padding-right: 6px;
+    margin-top: -4px;
+`
+
 class Home extends Component {
 
     render() {
@@ -81,7 +122,20 @@ class Home extends Component {
                 </MobileInfo>
                 <Row>
                     <SideNav>
-                        navigation
+                        <NavCol>
+                            <Logo>
+                                TheMovieApp
+                            </Logo>
+                            <NavItem active>
+                                <FilmIcon /> Home
+                            </NavItem>
+                            <NavItem>
+                                <ShuffleIcon /> Random
+                            </NavItem>
+                            <NavItem>
+                                <UserIcon /> Profile
+                            </NavItem>
+                        </NavCol>
                     </SideNav>
                     <Main>
                         <Row>

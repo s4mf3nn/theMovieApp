@@ -4,6 +4,9 @@ import React, { Component, Fragment } from 'react';
 import styled from 'styled-components';
 import axios from "axios";
 
+// components
+import GoBack from '../Components/GoBack';
+
 const BackgroundMovie = styled.img`
     width: 100%;
     height: 100%;
@@ -72,8 +75,8 @@ const MovieOverview = styled.div`
 const SeeMore = styled.button`
     color: #fff;
     background-color: #008ae1;
-    font-size: 30px;
-    padding: 10px 40px 12px;
+    font-size: 26px;
+    padding: 8px 36px 10px;
     font-weight: bold;
     border-radius: 50px;
     border: none;
@@ -119,6 +122,7 @@ class Movie extends Component {
                 <BackgroundMovie src={"https://image.tmdb.org/t/p/w500_and_h282_face" + this.state.poster} alt={this.state.title} />
                 <Layer />
                 <ContentContainer>
+                    <GoBack />
                     <ContentLeft>
                         <MovieInfo>
                             <MovieTitle>{this.state.title}</MovieTitle>
